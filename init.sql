@@ -1,0 +1,11 @@
+CREATE DATABASE IF NOT EXISTS tasks;
+
+CREATE TABLE IF NOT EXISTS tasks (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    execute_at TIMESTAMPTZ NOT NULL
+);
+
+INSERT INTO tasks (name, execute_at)
+VALUES ('demo from db', NOW())
+ON CONFLICT DO NOTHING;
